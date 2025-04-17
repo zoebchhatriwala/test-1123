@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import  { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import styles from './Login.module.css';
+import PropTypes from 'prop-types';
 
 const Login = ({ onLogin }) => {
   const [formData, setFormData] = useState({ username: '', password: '' });
@@ -31,7 +32,7 @@ const Login = ({ onLogin }) => {
 
   return (
     <div className={styles.container}>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className={styles.form}>
         <h2>Login</h2>
         <input
           type="text"
@@ -60,5 +61,10 @@ const Login = ({ onLogin }) => {
     </div>
   );
 };
+
+Login.propTypes = {
+  onLogin: PropTypes.func.isRequired, // Validate that onLogin is a required function
+};
+
 
 export default Login;

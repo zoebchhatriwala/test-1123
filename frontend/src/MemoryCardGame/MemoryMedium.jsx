@@ -283,7 +283,6 @@ const MemoryMedium = () => {
 };
   
   const handleNewGame = () => {
-   
     
     setCards(shuffleArray(cardImages));
     setMatchedCards([]);

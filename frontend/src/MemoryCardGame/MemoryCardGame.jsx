@@ -290,7 +290,6 @@ const MemoryCardGame = () => {
 };
   
   const handleNewGame = () => {
-   
     
     setCards(shuffleArray(cardImages));
     setMatchedCards([]);
@@ -404,10 +403,11 @@ const MemoryCardGame = () => {
 
         saveData();
     }
-}, [matchedCards, cards.length, navigate, sfxVolume, failedAttempts, timer]);
+}, [matchedCards, cards.length, navigate, sfxVolume, failedAttempts, timer, userID]);
 
 
   const userID = localStorage.getItem("userID"); // ✅ Fetch from local storage or auth context
+
   if (!userID) {
     console.error("Error: userID is missing.");
     return;

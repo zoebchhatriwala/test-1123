@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import  { useState } from 'react';
 import axios from 'axios';
-import styles from './Register.module.css';
+import styles from './Login.module.css';
 
 const Register = () => {
   const [formData, setFormData] = useState({ username: '', password: '' });
@@ -18,7 +18,7 @@ const Register = () => {
 
   return (
     <div className={styles.container}>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className={styles.form}>
         <h2>Register</h2>
         <input
           type="text"
@@ -34,7 +34,10 @@ const Register = () => {
           onChange={(e) => setFormData({ ...formData, password: e.target.value })}
           className={styles.input}
         />
-        <button type="submit" className={styles.button}>
+        <button type="button" className={styles.button} onClick={() => window.location.href = '/login'}>
+          Back
+        </button> 
+        <button type="submit" className={`${styles.button} ${styles.loginButton}`}>
           Register
         </button>
         {message && <p className={styles.message}>{message}</p>}
